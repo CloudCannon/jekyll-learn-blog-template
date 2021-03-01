@@ -1,14 +1,66 @@
 ---
+# Basics
+
+valid_types: [ 4, 4.1, "4", true]
+title: Home
+birds_vertical:
+  - Tui
+  - Kea
+  - Pukeko
+  - Piwakawaka
+  - Kereru
+  - Weka
+
+birds_inline: [Kiwi, Tui, Kea, Karakiri, Weka]
+
+# Objects
+birds:
+  - name: Tui
+    description: Striking songbird
+    image: images/tui.jpg
+  - name: Kea
+    description: Alpine parrot
+    image: images/kea.jpg
+  - name: Kaka
+    description: Loud, social forest parrot
+    image: images/kaka.jpg
+  - name: Pukeko
+    description: Colourful swamp hen
+    image: images/pukeko.jpg 
+  - name: Piwakawaka
+    description: Small and energetic
+    image: images/piwakawaka.jpg
+  - name: Kereru
+    description: Mute yet loud pigeon
+    image: images/kereru.jpg
+
+# Multiline strings
+
+# 1: Folded style
+
+kea: > 
+  The kea is the world’s only alpine parrot and native to New Zealand, with   high intelligence and curiosity - which also extends to its eating habits.
+
+# 2: Literal style 
+
+kakapo: |
+  The kakapo is another parrot native to New Zealand.  
+  Unlike the kea, it is a nocturnal, flightless herbivore, and the heaviest  parrot in the world.  
+  Unfortunately, these traits have led to it being critically endangered.
 ---
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CawCannon</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Prompt:wght@700&display=swap" rel="stylesheet">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if page.title %}
+      <title>CawCannon | {{ page.title }}</title>
+    {% else %}
+      <title>CawCannon</title>
+    {% endif %}
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Prompt:wght@700&display=swap" rel="stylesheet">
+  </head>
 <body class="page">
 
   <header>
@@ -37,8 +89,33 @@
         </div>
 
         <div class="page-content">
-          <h2 class="page-content__heading">Front matter and YAML</h4>
-            <!-- Output front matter here with Liquid -->
+          <h2 class="page-content__heading">Front matter and YAML</h2>
+          <br>
+          <h3>Arrays</h3>
+          <br>
+            {% for bird in page.birds_vertical %}
+              <p>{{ bird }}</p>
+            {% endfor %}
+            <br>
+          <h3>Objects</h3>
+          <br>
+            <div class="image-grid">
+              {% for bird in page.birds %}
+              <div class="item">
+                <img src="{{ bird.image }}">
+                <p>Bird name: {{bird.name}}</p>
+                <p>Description: {{bird.description}}</p>
+              </div>
+              {% endfor %}
+            </div>
+          <br>
+          <h3>Multiline strings</h3>
+          <br>
+          <h4>Folded:</h4>
+            {{ page.kea | markdownify }}
+          <br>
+          <h4>Literal:</h4>
+            {{ page.kakapo | markdownify }}
         </div>
     </main>
 
