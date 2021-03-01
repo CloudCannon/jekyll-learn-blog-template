@@ -37,9 +37,39 @@
         </div>
 
         <div class="page-content">
-          <p class="featured">Featured posts</p>
-            <!-- Page content here -->
-        </div>
+        <p class="featured">Liquid Basics</p>
+          <!-- Liquid Basics -->
+          <div class="examples-group">
+            <div class="example">
+              <h3>String filter examples</h3>
+              <p>{{ "uppercase" | upcase }}</p>
+              <p>{{ "LOWERCASE" | downcase }}</p>
+              <p>{{ "How long am I?" | size }}</p>
+              <p>{{ "Copyright " | append: "My Blog" }}</p>
+              <p>{{ "2021-01-01T00:00:00Z" | date_to_long_string }}</p>
+            </div>
+            <div class="example">
+              <h3>Loops</h3>
+              {% assign products = "Kiwi,Tui,Kea,Karariki,Weka" | split: "," %}
+              <ul>
+              {% for item in products %}
+              <li>{{ item }}</li>
+              {% endfor %}
+              </ul>
+            </div>
+            <div class="example">
+              <h3>Conditions</h3>
+              {% assign title = "home" %}
+
+              {% if title == "home" %}
+                <p>This is the homepage</p>
+              {% elsif title == "about" %}
+                <p>This is the about page</p>
+              {% else %}
+                <p>Welcome!</p>
+              {% endif %}
+            </div>
+          </div>
       </div>
     </main>
 
