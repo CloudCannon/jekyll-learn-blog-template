@@ -1,52 +1,5 @@
 ---
-# Basics
-
-valid_types: [ 4, 4.1, "4", true]
 title: Home
-birds_vertical:
-  - Tui
-  - Kea
-  - Pukeko
-  - Piwakawaka
-  - Kereru
-  - Weka
-
-birds_inline: [Kiwi, Tui, Kea, Karakiri, Weka]
-
-# Objects
-birds:
-  - name: Tui
-    description: Striking songbird
-    image: images/tui.jpg
-  - name: Kea
-    description: Alpine parrot
-    image: images/kea.jpg
-  - name: Kaka
-    description: Loud, social forest parrot
-    image: images/kaka.jpg
-  - name: Pukeko
-    description: Colourful swamp hen
-    image: images/pukeko.jpg 
-  - name: Piwakawaka
-    description: Small and energetic
-    image: images/piwakawaka.jpg
-  - name: Kereru
-    description: Mute yet loud pigeon
-    image: images/kereru.jpg
-
-# Multiline strings
-
-# 1: Folded style
-
-kea: > 
-  The kea is the world’s only alpine parrot and native to New Zealand, with   high intelligence and curiosity - which also extends to its eating habits.
-
-# 2: Literal style 
-
-kakapo: |
-  The kakapo is another parrot native to New Zealand.  
-  Unlike the kea, it is a nocturnal, flightless herbivore, and the heaviest  parrot in the world.  
-  Unfortunately, these traits have led to it being critically endangered.
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -66,13 +19,13 @@ kakapo: |
   <header>
     <nav>
       <ul class="top-nav">
-        <li class="top-nav__logo"><a href="#">CawCannon</a></li>
+        <li class="top-nav__logo"><a href="/">CawCannon</a></li>
         <div class="top-nav__link-group">
-          <li class="top-nav__link"><a href="#">Home</a></li>
+          <li class="top-nav__link"><a href="/">Home</a></li>
           <li class="top-nav__link"><a href="#">Blog</a></li>
           <li class="top-nav__link"><a href="#">Gallery</a></li>
           <li class="top-nav__link"><a href="#">Locations</a></li>
-          <li class="top-nav__link"><a href="#">About</a>
+          <li class="top-nav__link"><a href="/about">About</a>
           <li class="top-nav__link"><a href="#">
               <img class="icons" src="/images/search-icon.svg">
             </a>
@@ -89,7 +42,6 @@ kakapo: |
         </div>
 
         <div class="page-content">
-          <p class="featured">Layouts</p>
             <!-- Content goes here -->
         </div>
     </main>
