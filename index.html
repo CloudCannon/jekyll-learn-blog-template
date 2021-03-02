@@ -8,3 +8,20 @@ title: Home
   {% include youtube.html youtube_id="7W7hEUGtv4U" %}
   {% include youtube.html youtube_id="E3a88_SjJR0" %}
 </div>
+
+<p class="featured">Featured posts</p>
+<h2 class="heading-secondary dark-blue">Latest posts</h2>
+
+<div class="post-row">
+{% for post in site.posts %}
+  <div class="post-front">
+    <img class="post-front__image" src="{{ post.image }}">
+    <a class="preview-title" href="{{ post.url }}">{{ post.title }}</a>
+    <div class="tag-group"> 
+      {% for tag in post.tags %}
+      <div class="tag"><span class="tag-text">{{ tag }}</span></div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
