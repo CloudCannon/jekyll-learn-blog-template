@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<div class="article-container">
+    <h1 class="item-header">{{ page.title }}</h1>
+        <img class="article-image" src="{{ page.image }}">
+        <div class="item-footer">
+            <div class="item-footer__status">
+                <div class="item-footer__left">
+                    <p class="item-footer__bold">Conservation status:</p>
+                    <p>{{ page.status }}</p>
+                </div>
+                <div class="item-footer__right">         
+                    <p class="item-footer__bold">New Zealand status:</p>
+                    <p>{{ page.nz_status }}</p>
+                </div>
+            </div>
+            <div class="item-footer__location">
+                <p class="item-footer__bold">Found in:</p>
+                <p>{{ page.distribution }}</p>
+            </div>
+        </div>
+    {{ content }}
+</div>

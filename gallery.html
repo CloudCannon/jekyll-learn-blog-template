@@ -1,0 +1,27 @@
+---
+layout: default
+title: Gallery
+---
+<h1 class="gallery-header dark-blue">Bird Index</h1>
+<div class="gallery-container">
+    {% assign sorted_array = site.birds | sort: "title" %}
+    {% for bird in sorted_array %}
+      <div class="gallery-item">
+        <div class="gallery-item__image-block">
+            {% if bird.status == "Endangered" %}
+            <span class="gallery-item__status"><span class="gallery-item__bullet"></span>{{ bird.status }}</span>
+            {% endif %}
+            <img class="gallery-item__image" src="{{ bird.image }}">
+        </div>
+        <p class="gallery-item__title">{{ bird.title }}</p>
+        <p class="gallery-item__text">{{ bird.brief }}</p>
+        <a href="{{ bird.url }}">
+            <div class="gallery-item__link">
+                <span>Read More</span>
+                <img class="gallery-item__arrow" src="/images/arrow-white.svg">
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+    
