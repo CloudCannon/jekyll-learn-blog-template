@@ -10,6 +10,28 @@ title: Endangered bird locations
 <script src="/js/map.js"></script>
 
 <script>
-    //  Add marker list here
+    let markers = {{ site.data.locations | jsonify }};
     google.maps.event.addDomListener(window, 'load', initializeMap);
 </script>
+
+
+<div class="contact">
+    <h2 class="contact__heading">Report a sighting</h2>
+    <p>If you think you've spotted an endangered species, please contact one of our friendly staff to let them know.</p>
+</div>
+<div class="staff">
+	{% for person in site.data.staff %}
+	<div class="staff-member">
+		<img class="staff-member__image" src="{{ person.image }}">
+		<div>
+		<p class="staff-member__name">{{ person.name }}</p>
+		<p>Contact options: </p>
+		<ul class="staff-member__contacts">
+			<li><a class="option" href="#">Email</a></li>
+			<li><a class="option" href="#">Facebook</a></li>
+			<li><a class="option" href="#">Twitter</a></li>
+		</ul>
+		</div>
+	</div>
+	{% endfor %}
+</div>
